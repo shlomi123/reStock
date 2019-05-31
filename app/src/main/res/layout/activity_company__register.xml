@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".COMPANY_REGISTER">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/imageView_company_profile"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:src="@mipmap/ic_launcher"/>
+
+    <ImageView
+        android:id="@+id/imageView_company_profile_placeholder"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/circular_image_view"
+        app:srcCompat="@drawable/ic_person_black_24dp"/>
+
+    <Button
+        android:id="@+id/button_open_file_chooser_for_profile"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="70dp"
+        android:layout_alignStart="@id/imageView_company_profile"
+        android:layout_alignBottom="@id/imageView_company_profile"
+        android:background="@drawable/circular_choose_profile"
+        android:drawableStart="@drawable/ic_mode_edit_white_24dp"/>
+
+    <EditText
+        android:id="@+id/editTextCompanyEmail"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="180dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="email@example.com"/>
+
+    <EditText
+        android:id="@+id/editTextCompanyName"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:inputType="textCapSentences"
+        android:layout_below="@id/editTextCompanyEmail"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="company name"/>
+
+    <EditText
+        android:id="@+id/editTextCompanyPassword"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/editTextCompanyName"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="password"/>
+
+    <EditText
+        android:id="@+id/editTextCompanyPasswordVerify"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/editTextCompanyPassword"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="verify password"/>
+
+    <Button
+        android:id="@+id/ButtonCompanyVerify"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/editTextCompanyPasswordVerify"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/rounded_rectangle"
+        android:textColor="@color/white"
+        android:text="sign up" />
+
+    <ProgressBar
+        android:id="@+id/progressBar_company_profile_upload"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textView_log_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ButtonCompanyVerify"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/colorAccent"
+        android:text="@string/underlined_log_in"/>
+
+</RelativeLayout>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.reStock.app">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <service
+            android:name=".NewOrderService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity
+            android:name=".STORE_FEEDBACK"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar2"/>
+        <activity
+            android:name=".ADMIN_FEEDBACK"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar2"/>
+        <activity
+            android:name=".ENTRY_POINT"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ADMIN_MAIN_PAGE"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".ADMIN_ADD_STORE"
+            android:screenOrientation="portrait"
+            android:label="Add Store"/>
+        <activity
+            android:name=".ADMIN_VIEW_STORE_ORDERS"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".COMPANY_REGISTER"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar2" />
+        <activity
+            android:name=".CHOOSE_USER_TYPE"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar2" />
+        <activity
+            android:name=".ADMIN_ADD_PRODUCT"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar2"/>
+        <activity
+            android:name=".COMPANY_SIGN_IN"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar2" />
+        <activity
+            android:name=".STORE_REGISTER"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar2"/>
+        <activity
+            android:name=".STORE_MAIN_PAGE"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".STORE_SIGN_IN"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar2"/>
+        <activity
+            android:name=".STORE_SHOW_DISTRIBUTOR_PRODUCTS"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar2"/>
+        <activity
+            android:name=".STORE_ORDER_PRODUCT"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar2"/>
+        <activity
+            android:name=".STORE_QR_SCAN"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar2"/>
+        <activity
+            android:name=".ADMIN_EDIT_PRODUCT"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar2"/>
+    </application>
+
+</manifest>

@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "501512132723",
+    "firebase_url": "https://restock-130b3.firebaseio.com",
+    "project_id": "restock-130b3",
+    "storage_bucket": "restock-130b3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:501512132723:android:8319ccdd85d70d1e",
+        "android_client_info": {
+          "package_name": "com.reStock.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "501512132723-iprfhkogc7tf4eqaqlpmcgn21mc9st15.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmerA1bUD-LUriurFR-UdmlWAKlAFM1-I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "501512132723-iprfhkogc7tf4eqaqlpmcgn21mc9st15.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".STORE_REGISTER">
+
+    <EditText
+        android:id="@+id/editTextStoreEmail"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:hint="email@example.com" />
+
+    <EditText
+        android:id="@+id/editTextStoreName"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/editTextStoreEmail"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="textCapSentences"
+        android:hint="store name" />
+
+    <EditText
+        android:id="@+id/editTextStorePassword"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/editTextStoreName"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="password"/>
+
+    <EditText
+        android:id="@+id/editTextStorePasswordVerify"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/editTextStorePassword"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="verify password"/>
+
+    <Button
+        android:id="@+id/ButtonStoreVerify"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/editTextStorePasswordVerify"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/rounded_rectangle"
+        android:textColor="@color/white"
+        android:text="sign up" />
+
+    <ProgressBar
+        android:id="@+id/progressBarStoreLogIn"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+
+    <TextView
+        android:id="@+id/textView_store_log_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ButtonStoreVerify"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:textColor="@color/colorAccent"
+        android:text="@string/underlined_log_in"/>
+
+</RelativeLayout>

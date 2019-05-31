@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView_text_value_option"
+        android:layout_width="200dp"
+        android:layout_marginStart="10dp"
+        android:layout_height="300dp"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/text_value" />
+
+    <TextView
+        android:id="@+id/textView_step_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        android:layout_below="@id/imageView_text_value_option"
+        android:layout_marginTop="30dp"
+        android:text="Generate and use qr code:"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView_explanation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView_step_4"
+        android:layout_below="@id/textView_step_4"
+        android:layout_marginTop="10dp"
+        android:text="Once the qr code has been generated, it must be printed on the container's (or the product itself) of all your products. This feature allows for your client to find your products efficiently and quickly in the application."
+        android:textSize="14sp"
+        android:textColor="@android:color/background_dark"/>
+
+    <Button
+        android:id="@+id/button_save_qr"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:background="@drawable/rounded_rectangle"
+        android:textColor="@color/white"
+        android:text="save" />
+
+</RelativeLayout>
