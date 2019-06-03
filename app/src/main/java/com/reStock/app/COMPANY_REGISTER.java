@@ -313,6 +313,8 @@ public class COMPANY_REGISTER extends AppCompatActivity {
                                                                                                         finish();
                                                                                                     }
                                                                                                 });
+                                                                                                TextView textView = dialog.findViewById(R.id.dialog_text);
+                                                                                                textView.setText("Verification mail has been sent");
                                                                                                 dialog.setCancelable(false);
                                                                                                 dialog.show();
 

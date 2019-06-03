@@ -1,11 +1,15 @@
 package com.reStock.app;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
@@ -14,6 +18,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -80,8 +85,19 @@ public class ScanFragment extends Fragment {
                 String result;
                 try {
                     save = QRGSaver.save(savePath, "qr code", bitmap, QRGContents.ImageType.IMAGE_JPEG);
-                    result = save ? "Image Saved to documents" : "Image Not Saved";
-                    Toast.makeText(getActivity(), result, Toast.LENGTH_LONG).show();
+                    result = save ? "Image saved to documents" : "Image Not Saved";
+
+                    if (save){
+                        new AlertDialog.Builder(getContext())
+                                .setMessage(result)
+                                .setPositiveButton("OK", null)
+                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                .show();
+                    }else{
+                        Toast.makeText(getActivity(), result, Toast.LENGTH_LONG).show();
+                    }
+
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

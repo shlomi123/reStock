@@ -161,9 +161,17 @@ public class StoresFragment extends Fragment implements StoreAdapter.OnItemClick
                         }
 
                         if (Helper.saveExcelFile(getContext(), chosenStore, store_orders)){
-                            Toast.makeText(getContext(), "excel sheet created - (saved to documents)", Toast.LENGTH_LONG).show();
+                            new AlertDialog.Builder(getContext())
+                                    .setMessage("excel sheet created(saved to documents)")
+                                    .setPositiveButton("OK", null)
+                                    .setIcon(android.R.drawable.ic_dialog_alert)
+                                    .show();
                         } else {
-                            Toast.makeText(getContext(), "error creating excel sheet", Toast.LENGTH_SHORT).show();
+                            new AlertDialog.Builder(getContext())
+                                    .setMessage("error creating excel sheet")
+                                    .setPositiveButton("OK", null)
+                                    .setIcon(android.R.drawable.ic_dialog_alert)
+                                    .show();
                         }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
