@@ -56,7 +56,7 @@ public class STORE_MAIN_PAGE extends AppCompatActivity implements NavigationView
             getSupportFragmentManager().beginTransaction().replace(R.id.store_content_frame,
                     new DistributorFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_distributors);
-            getSupportActionBar().setTitle("Distributor");
+            getSupportActionBar().setTitle("Distributors");
         }
 
         if(Build.VERSION.SDK_INT >=  Build.VERSION_CODES.M)

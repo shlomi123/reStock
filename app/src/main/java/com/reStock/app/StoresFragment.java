@@ -1,5 +1,6 @@
 package com.reStock.app;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,14 +12,17 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -196,25 +200,29 @@ public class StoresFragment extends Fragment implements StoreAdapter.OnItemClick
     public void onDeleteStore(int position) {
         final Store chosenStore = mStores.get(position);
 
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(getContext());
-        alertDialog.setTitle("Delete Store");
-        alertDialog.setMessage("Are you sure you want to delete the store " + chosenStore.get_name() + "?");
-
-        //if the user verifies the order
-        alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+        final Dialog dialog = new Dialog(getContext());
+        dialog.setContentView(R.layout.delete_store_alert_dialog);
+        Button yes = (Button) dialog.findViewById(R.id.dialog_yes);
+        yes.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                // delete chosen store
+            public void onClick(View view) {
                 deleteStore(chosenStore.get_email());
             }
-        }).setNegativeButton("NO", new DialogInterface.OnClickListener() {
+        });
+        Button cancel = (Button) dialog.findViewById(R.id.dialog_cancel);
+        cancel.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
+            public void onClick(View view) {
+                dialog.dismiss();
             }
         });
-        AlertDialog alert = alertDialog.create();
-        alert.show();
+        Toolbar toolbar = (Toolbar) dialog.findViewById(R.id.dialog_toolbar);
+        toolbar.setTitle("Delete Store");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        TextView textView =  (TextView)dialog.findViewById(R.id.dialog_text);
+        textView.setText("Are you sure you want to delete the store " + chosenStore.get_name() + "?");
+        dialog.setCancelable(false);
+        dialog.show();
     }
 
     private void deleteStore(final String storeEmail) {

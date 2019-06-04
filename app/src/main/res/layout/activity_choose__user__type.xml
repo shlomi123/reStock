@@ -6,14 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".CHOOSE_USER_TYPE">
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <!--<de.hdodenhof.circleimageview.CircleImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/imageView_company_profile"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:src="@mipmap/ic_launcher_round"/>
+        android:src="@mipmap/ic_launcher_round"/>-->
 
     <Button
         android:id="@+id/buttonCompany"
@@ -36,4 +36,16 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="30dp"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        android:textSize="72sp"
+        android:textColor="@color/colorAccent"
+        android:fontFamily="cursive"
+        android:text="reStock" />
+
 </RelativeLayout>

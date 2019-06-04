@@ -6,12 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".COMPANY_SIGN_IN">
 
+    <TextView
+        android:id="@+id/textView_distributor_signIn_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:textSize="72sp"
+        android:textColor="@color/colorAccent"
+        android:fontFamily="cursive"
+        android:text="Sign In" />
+
     <EditText
         android:id="@+id/editText_signIn_email"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="60dp"
+        android:layout_below="@id/textView_distributor_signIn_title"
         android:hint="email"
         android:ems="10"
         android:inputType="textEmailAddress" />

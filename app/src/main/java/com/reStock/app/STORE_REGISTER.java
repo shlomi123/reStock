@@ -159,20 +159,10 @@ public class STORE_REGISTER extends AppCompatActivity {
                                                         finish();
                                                     }
                                                 });
+                                                TextView textView =  (TextView)dialog.findViewById(R.id.dialog_text);
+                                                textView.setText("Verification email has been sent");
                                                 dialog.setCancelable(false);
                                                 dialog.show();
-
-                                                /*AlertDialog.Builder builder = new AlertDialog.Builder(STORE_REGISTER.this);
-                                                builder.setMessage("Verification email has been sent")
-                                                        .setCancelable(false)
-                                                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                                            public void onClick(DialogInterface dialog, int id) {
-                                                                startActivity(new Intent(STORE_REGISTER.this, STORE_SIGN_IN.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
-                                                                finish();
-                                                            }
-                                                        });
-                                                AlertDialog alert = builder.create();
-                                                alert.show();*/
 
                                             }else {
                                                 spinner.setVisibility(View.INVISIBLE);
