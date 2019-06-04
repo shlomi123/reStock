@@ -262,8 +262,8 @@ public class COMPANY_REGISTER extends AppCompatActivity {
                                             //upload store properties to database
                                             final String path = uri.toString();
                                             final Map<String, Object> map = new HashMap<>();
-                                            map.put("Name", name.getText().toString());
-                                            map.put("Email", email.getText().toString());
+                                            map.put("Name", name.getText().toString().trim());
+                                            map.put("Email", email.getText().toString().trim());
                                             map.put("Profile", path);
 
 

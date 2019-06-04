@@ -37,29 +37,33 @@
 
     <EditText
         android:id="@+id/editTextQuantity"
-        android:layout_width="280dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="12dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginBottom="172dp"
         android:hint="Quantity"
         android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/buttonOrderSpecificProduct"
-        android:layout_width="100dp"
+        android:layout_width="300dp"
         android:layout_height="40dp"
         android:layout_alignBottom="@+id/editTextQuantity"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="52dp"
         android:background="@drawable/rounded_rectangle"
         android:text="Order"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextQuantity"
-        app:layout_constraintStart_toEndOf="@+id/editTextQuantity" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextQuantity" />
 
     <TextView
         android:id="@+id/textViewUnitsPerPackage"
@@ -68,11 +72,11 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="96dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="96dp"
-        android:layout_marginBottom="20dp"
         android:text="one order is a package of 24 items"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonOrderSpecificProduct" />
 
 </android.support.constraint.ConstraintLayout>

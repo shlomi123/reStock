@@ -163,19 +163,22 @@ public class StoresFragment extends Fragment implements StoreAdapter.OnItemClick
                             Order order = documentSnapshot.toObject(Order.class);
                             store_orders.add(order);
                         }
-
-                        if (Helper.saveExcelFile(getContext(), chosenStore, store_orders)){
-                            new AlertDialog.Builder(getContext())
-                                    .setMessage("excel sheet created(saved to documents)")
-                                    .setPositiveButton("OK", null)
-                                    .setIcon(android.R.drawable.ic_dialog_alert)
-                                    .show();
-                        } else {
-                            new AlertDialog.Builder(getContext())
-                                    .setMessage("error creating excel sheet")
-                                    .setPositiveButton("OK", null)
-                                    .setIcon(android.R.drawable.ic_dialog_alert)
-                                    .show();
+                        if (!store_orders.isEmpty()){
+                            if (Helper.saveExcelFile(getContext(), chosenStore, store_orders)){
+                                new AlertDialog.Builder(getContext())
+                                        .setMessage("excel sheet created(saved to documents)")
+                                        .setPositiveButton("OK", null)
+                                        .setIcon(android.R.drawable.ic_dialog_alert)
+                                        .show();
+                            } else {
+                                new AlertDialog.Builder(getContext())
+                                        .setMessage("error creating excel sheet")
+                                        .setPositiveButton("OK", null)
+                                        .setIcon(android.R.drawable.ic_dialog_alert)
+                                        .show();
+                            }
+                        }else{
+                            Toast.makeText(getContext(), "no orders were made", Toast.LENGTH_LONG).show();
                         }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
@@ -206,6 +209,7 @@ public class StoresFragment extends Fragment implements StoreAdapter.OnItemClick
         yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                dialog.dismiss();
                 deleteStore(chosenStore.get_email());
             }
         });

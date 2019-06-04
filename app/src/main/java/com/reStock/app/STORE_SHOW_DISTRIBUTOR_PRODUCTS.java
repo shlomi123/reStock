@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
@@ -68,9 +69,8 @@ public class STORE_SHOW_DISTRIBUTOR_PRODUCTS extends AppCompatActivity implement
                             mAdapter.notifyDataSetChanged();
                             mProgressCircle.setVisibility(View.INVISIBLE);
                         } else {
-                            mProgressCircle.setVisibility(View.INVISIBLE);
-                            mProducts.clear();
-                            mAdapter.notifyDataSetChanged();
+                            Toast.makeText(getApplicationContext(), "Distributor has no products yet", Toast.LENGTH_LONG).show();
+                            finish();
                         }
                     }
                 });
