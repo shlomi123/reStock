@@ -67,7 +67,7 @@
         <activity
             android:name=".ADMIN_ADD_PRODUCT"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar2"/>
+            android:theme="@style/FloatingActivity"/>
         <activity
             android:name=".COMPANY_SIGN_IN"
             android:screenOrientation="portrait"

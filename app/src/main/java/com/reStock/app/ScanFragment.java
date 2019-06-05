@@ -85,7 +85,7 @@ public class ScanFragment extends Fragment {
                 String result;
                 try {
                     save = QRGSaver.save(savePath, "qr code", bitmap, QRGContents.ImageType.IMAGE_JPEG);
-                    result = save ? "Image saved to documents" : "Image Not Saved";
+                    result = save ? "Image saved to documents (Internal Storage)" : "Image Not Saved";
 
                     if (save){
                         new AlertDialog.Builder(getContext())

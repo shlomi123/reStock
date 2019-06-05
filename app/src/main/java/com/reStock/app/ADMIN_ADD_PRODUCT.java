@@ -1,5 +1,6 @@
 package com.reStock.app;
 
+import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
@@ -202,5 +203,11 @@ public class ADMIN_ADD_PRODUCT extends AppCompatActivity {
                         progressBar.setProgress((int) progress);
                     }
                 });
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        overridePendingTransition(0, 0);
     }
 }
