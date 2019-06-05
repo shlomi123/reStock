@@ -49,6 +49,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ImageVie
         holder.textViewName.setText(ProductCurrent.getName());
         holder.textViewCost.setText("Cost/Unit: " + ProductCurrent.getCost() + "$");
         holder.textViewUnits.setText("Units/Package: " + ProductCurrent.getUnits_per_package());
+        holder.imageView.setVisibility(View.INVISIBLE);
 
         final StorageReference storageReference = storage.getReferenceFromUrl(ProductCurrent.getImageUrl());
         storageReference.getMetadata().addOnSuccessListener(new OnSuccessListener<StorageMetadata>() {
@@ -62,6 +63,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ImageVie
                             .signature(new ObjectKey(storageMetadata.getCreationTimeMillis()))
                             .placeholder(circularProgressDrawable)
                             .into(holder.imageView);
+
+                    holder.placeholder.setVisibility(View.INVISIBLE);
+                    holder.imageView.setVisibility(View.VISIBLE);
                 }catch(Exception e){
                     Log.d("blaaaa", e.getMessage());
                 }
@@ -80,6 +84,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ImageVie
         public TextView textViewCost;
         public TextView textViewUnits;
         public ImageView imageView;
+        public ImageView placeholder;
 
         public ImageViewHolder(View itemView) {
             super(itemView);
@@ -91,6 +96,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ImageVie
             textViewCost = itemView.findViewById(R.id.text_view_cost);
             textViewUnits = itemView.findViewById(R.id.text_view_units);
             imageView = itemView.findViewById(R.id.image_view_product);
+            placeholder = itemView.findViewById(R.id.image_view_product_placeholder);
         }
 
         @Override

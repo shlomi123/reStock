@@ -166,7 +166,7 @@ public class StoresFragment extends Fragment implements StoreAdapter.OnItemClick
                         if (!store_orders.isEmpty()){
                             if (Helper.saveExcelFile(getContext(), chosenStore, store_orders)){
                                 new AlertDialog.Builder(getContext())
-                                        .setMessage("excel sheet created(saved to documents)")
+                                        .setMessage("excel sheet created"+ "\n" +"saved to internal storage documents")
                                         .setPositiveButton("OK", null)
                                         .setIcon(android.R.drawable.ic_dialog_alert)
                                         .show();

@@ -22,7 +22,6 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
     private com.reStock.app.OrderAdapter.OnItemClickListener mListener;
     private CircularProgressDrawable circularProgressDrawable;
     private FirebaseStorage storage = FirebaseStorage.getInstance();
-    private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     public OrderAdapter(Context context, List<Order> orders) {
         mContext = context;
