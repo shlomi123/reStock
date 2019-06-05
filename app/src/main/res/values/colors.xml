@@ -8,4 +8,6 @@
     <color name="cardSecondary">#928686</color>
     <color name="transparent">#3B000000</color>
     <color name="transparent2">#2D000000</color>
+    <color name="colorPrimaryPale">#80008577</color>
+
 </resources>
