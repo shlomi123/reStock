@@ -189,4 +189,10 @@ public class STORE_ORDER_PRODUCT extends AppCompatActivity {
                     }
                 });
     }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        overridePendingTransition(0, 0);
+    }
 }

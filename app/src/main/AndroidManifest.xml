@@ -91,7 +91,7 @@
         <activity
             android:name=".STORE_ORDER_PRODUCT"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar2"/>
+            android:theme="@style/FloatingActivity"/>
         <activity
             android:name=".STORE_QR_SCAN"
             android:screenOrientation="portrait"
@@ -99,7 +99,7 @@
         <activity
             android:name=".ADMIN_EDIT_PRODUCT"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar2"/>
+            android:theme="@style/FloatingActivity"/>
     </application>
 
 </manifest>

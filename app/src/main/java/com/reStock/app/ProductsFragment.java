@@ -1,5 +1,6 @@
 package com.reStock.app;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,14 +10,17 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -116,9 +120,33 @@ public class ProductsFragment extends Fragment implements ProductAdapter.OnItemC
 
     @Override
     public void onDeleteProduct(int position) {
-        Product product = mProducts.get(position);
+        final Product product = mProducts.get(position);
 
-        deleteProduct(product);
+        final Dialog dialog = new Dialog(getContext());
+        dialog.setContentView(R.layout.delete_store_alert_dialog);
+        Button yes = (Button) dialog.findViewById(R.id.dialog_yes);
+        yes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                deleteProduct(product);
+            }
+        });
+        Button cancel = (Button) dialog.findViewById(R.id.dialog_cancel);
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        Toolbar toolbar = (Toolbar) dialog.findViewById(R.id.dialog_toolbar);
+        toolbar.setTitle("Delete Store");
+        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        TextView textView =  (TextView)dialog.findViewById(R.id.dialog_text);
+        textView.setText("Are you sure you want to delete the product " + product.getName() + "?");
+        dialog.setCancelable(false);
+        dialog.show();
+
     }
 
     @Override

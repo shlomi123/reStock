@@ -414,4 +414,10 @@ public class ADMIN_EDIT_PRODUCT extends AppCompatActivity {
                     }
                 });
     }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        overridePendingTransition(0, 0);
+    }
 }

@@ -38,7 +38,7 @@ public class StoreSearchAdapter extends RecyclerView.Adapter<StoreSearchAdapter.
     public void onBindViewHolder(StoreSearchAdapter.StoreViewHolder holder, int position) {
         final Store StoreCurrent = mStoresFull.get(position);
         holder.Name.setText(StoreCurrent.get_name());
-        holder.Email.setText("Email: " + StoreCurrent.get_email());
+        holder.Email.setText(StoreCurrent.get_email());
         holder.Button.setText(Character.toString(StoreCurrent.get_name().charAt(0)));
         holder.Button.getBackground().setColorFilter(Color.parseColor(Helper.getRandomColor()), PorterDuff.Mode.LIGHTEN);
     }
