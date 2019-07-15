@@ -1,8 +1,10 @@
 package com.reStock.app;
 
+import android.Manifest;
 import android.app.ActivityManager;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -17,6 +19,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.CircularProgressDrawable;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -104,7 +107,7 @@ public class ADMIN_MAIN_PAGE extends AppCompatActivity implements NavigationView
                 getSupportFragmentManager().beginTransaction().replace(R.id.content_frame,
                         new StoresFragment()).commit();
                 navigationView.setCheckedItem(R.id.nav_stores);
-                getSupportActionBar().setTitle("Stores");
+                getSupportActionBar().setTitle("Retailers");
                 break;
             case 2:
                 getSupportFragmentManager().beginTransaction().replace(R.id.content_frame,
@@ -130,7 +133,7 @@ public class ADMIN_MAIN_PAGE extends AppCompatActivity implements NavigationView
                 getSupportFragmentManager().beginTransaction().replace(R.id.content_frame,
                         new StoresFragment()).commit();
                 navigationView.setCheckedItem(R.id.nav_stores);
-                getSupportActionBar().setTitle("Stores");
+                getSupportActionBar().setTitle("Retailers");
                 break;
         }
     }
@@ -144,7 +147,7 @@ public class ADMIN_MAIN_PAGE extends AppCompatActivity implements NavigationView
                 fragment_num = 1;
                 getSupportFragmentManager().beginTransaction().replace(R.id.content_frame,
                         new StoresFragment()).commit();
-                getSupportActionBar().setTitle("Stores");
+                getSupportActionBar().setTitle("Retailers");
                 break;
             case R.id.nav_products:
                 //open product fragment
@@ -194,7 +197,41 @@ public class ADMIN_MAIN_PAGE extends AppCompatActivity implements NavigationView
 
     private void requestPermission()
     {
-        ActivityCompat.requestPermissions(this, new String[]{WRITE_EXTERNAL_STORAGE}, 1);
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+
+            new AlertDialog.Builder(this)
+                    .setTitle("Permission needed")
+                    .setMessage("This permission is needed in order to upload images for products and save files to storage")
+                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ActivityCompat.requestPermissions(ADMIN_MAIN_PAGE.this,
+                                    new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+                        }
+                    })
+                    .create().show();
+
+        } else {
+            ActivityCompat.requestPermissions(this,
+                    new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case 1: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+                } else {
+                    requestPermission();
+                }
+            }
+        }
     }
 
     private void openFileChooser() {
@@ -273,7 +310,7 @@ public class ADMIN_MAIN_PAGE extends AppCompatActivity implements NavigationView
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                             }
                         }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                             @Override
@@ -284,7 +321,7 @@ public class ADMIN_MAIN_PAGE extends AppCompatActivity implements NavigationView
                         });
 
                     }else {
-                        Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     }
                 }
             });
@@ -355,7 +392,7 @@ public class ADMIN_MAIN_PAGE extends AppCompatActivity implements NavigationView
             getSupportFragmentManager().beginTransaction().replace(R.id.content_frame,
                     new StoresFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_stores);
-            getSupportActionBar().setTitle("Stores");
+            getSupportActionBar().setTitle("Retailers");
         }
     }
 }

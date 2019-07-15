@@ -80,7 +80,7 @@ public class STORE_SIGN_IN extends AppCompatActivity {
                                     button.setVisibility(View.VISIBLE);
                                     reset.setVisibility(View.VISIBLE);
                                     spinner.setVisibility(View.INVISIBLE);
-                                    Toast.makeText(getApplicationContext(), task.getException().toString(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), task.getException().toString(), Toast.LENGTH_LONG).show();
                                 }
                             }
                         });
@@ -115,7 +115,7 @@ public class STORE_SIGN_IN extends AppCompatActivity {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if (task.isSuccessful()) {
-                                                    Toast.makeText(STORE_SIGN_IN.this, "email sent to reset password", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(STORE_SIGN_IN.this, "email sent to reset password", Toast.LENGTH_LONG).show();
                                                 }else {
                                                     Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_LONG).show();
                                                 }
@@ -154,7 +154,7 @@ public class STORE_SIGN_IN extends AppCompatActivity {
             button.setVisibility(View.VISIBLE);
             reset.setVisibility(View.VISIBLE);
             spinner.setVisibility(View.INVISIBLE);
-            Toast.makeText(getApplicationContext(), "email wasn't verified", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "email wasn't verified", Toast.LENGTH_LONG).show();
             FirebaseAuth.getInstance().signOut();
         }
 

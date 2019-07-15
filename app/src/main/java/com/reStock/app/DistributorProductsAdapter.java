@@ -46,7 +46,7 @@ public class DistributorProductsAdapter extends RecyclerView.Adapter<Distributor
         Product ProductCurrent = mProducts.get(position);
         holder.textViewName.setText(ProductCurrent.getName());
         holder.textViewCost.setText("Cost/Unit: " + ProductCurrent.getCost() + "$");
-        holder.textViewUnits.setText("Units/Package: " + ProductCurrent.getUnits_per_package());
+        holder.textViewUnits.setText("Units/Case: " + ProductCurrent.getUnits_per_package());
         holder.imageView.setVisibility(View.INVISIBLE);
 
         final StorageReference storageReference = storage.getReferenceFromUrl(ProductCurrent.getImageUrl());

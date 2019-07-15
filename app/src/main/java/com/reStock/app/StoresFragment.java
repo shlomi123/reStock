@@ -142,7 +142,7 @@ public class StoresFragment extends Fragment implements StoreAdapter.OnItemClick
 
     @Override
     public void onItemClick(int position) {
-        Toast.makeText(getActivity(), "long press to show options", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), "long press to show options", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -184,7 +184,7 @@ public class StoresFragment extends Fragment implements StoreAdapter.OnItemClick
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), e.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -242,7 +242,7 @@ public class StoresFragment extends Fragment implements StoreAdapter.OnItemClick
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (!task.isSuccessful()) {
-                            Toast.makeText(getActivity(), "Error While Deleting", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Error While Deleting", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
@@ -255,7 +255,7 @@ public class StoresFragment extends Fragment implements StoreAdapter.OnItemClick
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (!task.isSuccessful()) {
-                            Toast.makeText(getActivity(), "Error While Deleting", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getActivity(), "Error While Deleting", Toast.LENGTH_LONG).show();
                         }
                     }
                 });

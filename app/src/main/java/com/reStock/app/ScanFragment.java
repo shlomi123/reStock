@@ -24,6 +24,8 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.zxing.WriterException;
 
+import java.io.File;
+
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
 import androidmads.library.qrgenearator.QRGSaver;
@@ -55,6 +57,10 @@ public class ScanFragment extends Fragment {
         company_name = mAuth.getCurrentUser().getDisplayName();
         generate = (Button) getActivity().findViewById(R.id.button_save_qr);
         qr = (ImageView) getActivity().findViewById(R.id.imageView_text_value_option);
+        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS) + "/" + company_name);
+        if (!file.exists()){
+            file.mkdir();
+        }
         savePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS).getPath() + "/" + company_name +"/QRCode/";
 
         code = company_name + "##" + company_email;
@@ -84,8 +90,8 @@ public class ScanFragment extends Fragment {
                 boolean save;
                 String result;
                 try {
-                    save = QRGSaver.save(savePath, "qr code", bitmap, QRGContents.ImageType.IMAGE_JPEG);
-                    result = save ? "Image saved to documents (Internal Storage)" : "Image Not Saved";
+                    save = QRGSaver.save(savePath, "QR code", bitmap, QRGContents.ImageType.IMAGE_JPEG);
+                    result = save ? "QR saved in file manager:\n\nInternal Storage/Documents" : "Image Not Saved";
 
                     if (save){
                         new AlertDialog.Builder(getContext())

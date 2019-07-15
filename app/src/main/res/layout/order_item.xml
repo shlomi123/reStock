@@ -37,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:text="Distributor"
+            android:text="Supplier"
             android:textColor="@color/cardSecondary"
             android:textSize="15sp" />
 

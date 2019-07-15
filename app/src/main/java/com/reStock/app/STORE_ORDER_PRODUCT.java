@@ -82,7 +82,7 @@ public class STORE_ORDER_PRODUCT extends AppCompatActivity {
             public void onClick(View view) {
                 if(editText.getText().toString().trim().equals(""))
                 {
-                    Toast.makeText(getApplicationContext(), "Pick a Quantity to Order", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Pick a Quantity to Order", Toast.LENGTH_LONG).show();
                 }
                 else
                 {
@@ -176,7 +176,7 @@ public class STORE_ORDER_PRODUCT extends AppCompatActivity {
                                         if (task.isSuccessful()) {
                                             //send mail
                                             SendMail sendMail = new SendMail(STORE_ORDER_PRODUCT.this, distributor_email, "Product Order",
-                                                    "Store: " + store_name + "\n" +
+                                                    "Retailer: " + store_name + "\n" +
                                                             "Order: " + String.valueOf(quantity) + " boxes of " + product_name + "\n\n" +
                                                             "Total cost: " + String.format("%.2f", total_cost) + "$", store_name, 0);
 

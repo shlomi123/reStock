@@ -115,7 +115,7 @@ public class ProductsFragment extends Fragment implements ProductAdapter.OnItemC
 
     @Override
     public void onItemClick(int position) {
-        Toast.makeText(getActivity(), "long press to show options", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), "long press to show options", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -213,7 +213,7 @@ public class ProductsFragment extends Fragment implements ProductAdapter.OnItemC
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if (!task.isSuccessful()) {
-                                                    Toast.makeText(getActivity(), "Error While Deleting", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(getActivity(), "Error While Deleting", Toast.LENGTH_LONG).show();
                                                 }
                                             }
                                         });

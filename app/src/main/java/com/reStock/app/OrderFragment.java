@@ -77,7 +77,7 @@ public class OrderFragment extends Fragment {
                             mAdapter.notifyDataSetChanged();
                             mProgressCircle.setVisibility(View.INVISIBLE);
                         } else {
-                            Toast.makeText(getContext(), "No orders made", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "No orders made", Toast.LENGTH_LONG).show();
                             mProgressCircle.setVisibility(View.INVISIBLE);
                             mOrders.clear();
                             mAdapter.notifyDataSetChanged();

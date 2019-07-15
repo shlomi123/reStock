@@ -5,10 +5,12 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -87,9 +89,70 @@ public class COMPANY_REGISTER extends AppCompatActivity {
                 //create user
                 if (name.getText().toString().trim().equals(""))
                 {
-                    Toast.makeText(getApplicationContext(), "enter company name", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "enter company name", Toast.LENGTH_LONG).show();
                 } else if (!imageFlag){
-                    Toast.makeText(getApplicationContext(), "pick a profile picture", Toast.LENGTH_SHORT).show();
+                    //Drawable defaultImage = getResources().getDrawable(R.drawable.ic_airport_shuttle_black_24dp);
+
+                    final Dialog dialog = new Dialog(COMPANY_REGISTER.this);
+                    dialog.setContentView(R.layout.delete_store_alert_dialog);
+                    Button yes = (Button) dialog.findViewById(R.id.dialog_yes);
+                    yes.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            dialog.dismiss();
+                        }
+                    });
+                    Button cancel = (Button) dialog.findViewById(R.id.dialog_cancel);
+                    cancel.setText("no");
+                    cancel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            mImageUri = Uri.parse("android.resource://com.reStock.app/" + R.drawable.baseline_airport_shuttle_black_48dp);
+
+                            spinner.setVisibility(View.VISIBLE);
+                            verify.setVisibility(View.INVISIBLE);
+                            password.setVisibility(View.INVISIBLE);
+                            verify_password.setVisibility(View.INVISIBLE);
+                            email.setVisibility(View.INVISIBLE);
+                            logIn.setVisibility(View.INVISIBLE);
+                            mImageView.setVisibility(View.INVISIBLE);
+                            placeholder.setVisibility(View.INVISIBLE);
+                            chooseFile.setVisibility(View.INVISIBLE);
+                            name.setVisibility(View.INVISIBLE);
+
+                            mAuth.createUserWithEmailAndPassword(email.getText().toString().trim(), password.getText().toString().trim())
+                                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<AuthResult> task) {
+                                            if (!task.isSuccessful())
+                                            {
+                                                spinner.setVisibility(View.INVISIBLE);
+                                                verify.setVisibility(View.VISIBLE);
+                                                password.setVisibility(View.VISIBLE);
+                                                verify_password.setVisibility(View.VISIBLE);
+                                                email.setVisibility(View.VISIBLE);
+                                                logIn.setVisibility(View.VISIBLE);
+                                                mImageView.setVisibility(View.VISIBLE);
+                                                placeholder.setVisibility(View.VISIBLE);
+                                                chooseFile.setVisibility(View.VISIBLE);
+                                                name.setVisibility(View.VISIBLE);
+                                                Toast.makeText(getApplicationContext(), task.getException().toString(), Toast.LENGTH_LONG).show();
+                                            }
+                                        }
+                                    });
+
+                            dialog.dismiss();
+                        }
+                    });
+                    Toolbar toolbar = (Toolbar) dialog.findViewById(R.id.dialog_toolbar);
+                    toolbar.setTitle("Profile Picture");
+                    toolbar.setTitleTextColor(getResources().getColor(R.color.white));
+                    TextView textView =  (TextView)dialog.findViewById(R.id.dialog_text);
+                    textView.setText("Would you like to add a profile image?");
+                    dialog.setCancelable(false);
+                    dialog.show();
+
+                    //Toast.makeText(getApplicationContext(), "pick a profile picture", Toast.LENGTH_LONG).show();
                 } else {
                     spinner.setVisibility(View.VISIBLE);
                     verify.setVisibility(View.INVISIBLE);
@@ -98,6 +161,7 @@ public class COMPANY_REGISTER extends AppCompatActivity {
                     email.setVisibility(View.INVISIBLE);
                     logIn.setVisibility(View.INVISIBLE);
                     mImageView.setVisibility(View.INVISIBLE);
+                    placeholder.setVisibility(View.INVISIBLE);
                     chooseFile.setVisibility(View.INVISIBLE);
                     name.setVisibility(View.INVISIBLE);
 
@@ -114,9 +178,10 @@ public class COMPANY_REGISTER extends AppCompatActivity {
                                         email.setVisibility(View.VISIBLE);
                                         logIn.setVisibility(View.VISIBLE);
                                         mImageView.setVisibility(View.VISIBLE);
+                                        placeholder.setVisibility(View.VISIBLE);
                                         chooseFile.setVisibility(View.VISIBLE);
                                         name.setVisibility(View.VISIBLE);
-                                        Toast.makeText(getApplicationContext(), task.getException().toString(), Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(), task.getException().toString(), Toast.LENGTH_LONG).show();
                                     }
                                 }
                             });
@@ -214,6 +279,7 @@ public class COMPANY_REGISTER extends AppCompatActivity {
                             email.setVisibility(View.VISIBLE);
                             logIn.setVisibility(View.VISIBLE);
                             mImageView.setVisibility(View.VISIBLE);
+                            placeholder.setVisibility(View.VISIBLE);
                             chooseFile.setVisibility(View.VISIBLE);
                             name.setVisibility(View.VISIBLE);
                         }
@@ -243,6 +309,7 @@ public class COMPANY_REGISTER extends AppCompatActivity {
                                 email.setVisibility(View.VISIBLE);
                                 logIn.setVisibility(View.VISIBLE);
                                 mImageView.setVisibility(View.VISIBLE);
+                                placeholder.setVisibility(View.VISIBLE);
                                 chooseFile.setVisibility(View.VISIBLE);
                                 name.setVisibility(View.VISIBLE);
                                 return;
@@ -314,7 +381,7 @@ public class COMPANY_REGISTER extends AppCompatActivity {
                                                                                                     }
                                                                                                 });
                                                                                                 TextView textView = dialog.findViewById(R.id.dialog_text);
-                                                                                                textView.setText("Verification mail has been sent");
+                                                                                                textView.setText("Verification email has been sent");
                                                                                                 dialog.setCancelable(false);
                                                                                                 dialog.show();
 
@@ -359,6 +426,7 @@ public class COMPANY_REGISTER extends AppCompatActivity {
                                     email.setVisibility(View.VISIBLE);
                                     logIn.setVisibility(View.VISIBLE);
                                     mImageView.setVisibility(View.VISIBLE);
+                                    placeholder.setVisibility(View.VISIBLE);
                                     chooseFile.setVisibility(View.VISIBLE);
                                     name.setVisibility(View.VISIBLE);
                                     Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
@@ -380,6 +448,7 @@ public class COMPANY_REGISTER extends AppCompatActivity {
                     email.setVisibility(View.VISIBLE);
                     logIn.setVisibility(View.VISIBLE);
                     mImageView.setVisibility(View.VISIBLE);
+                    placeholder.setVisibility(View.VISIBLE);
                     chooseFile.setVisibility(View.VISIBLE);
                     name.setVisibility(View.VISIBLE);
                     Toast.makeText(getApplicationContext(), task.getException().toString(), Toast.LENGTH_LONG).show();

@@ -78,7 +78,7 @@ public class COMPANY_SIGN_IN extends AppCompatActivity {
                                     button.setVisibility(View.VISIBLE);
                                     reset.setVisibility(View.VISIBLE);
                                     spinner.setVisibility(View.INVISIBLE);
-                                    Toast.makeText(getApplicationContext(), task.getException().toString(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), task.getException().toString(), Toast.LENGTH_LONG).show();
                                 }
                             }
                         });
@@ -113,7 +113,7 @@ public class COMPANY_SIGN_IN extends AppCompatActivity {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if (task.isSuccessful()) {
-                                                    Toast.makeText(COMPANY_SIGN_IN.this, "email sent to reset password", Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(COMPANY_SIGN_IN.this, "email sent to reset password", Toast.LENGTH_LONG).show();
                                                 }
                                             }
                                         });
@@ -151,7 +151,7 @@ public class COMPANY_SIGN_IN extends AppCompatActivity {
             button.setVisibility(View.VISIBLE);
             reset.setVisibility(View.VISIBLE);
             spinner.setVisibility(View.INVISIBLE);
-            Toast.makeText(getApplicationContext(), "email wasn't verified", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "email wasn't verified", Toast.LENGTH_LONG).show();
             FirebaseAuth.getInstance().signOut();
         }
 

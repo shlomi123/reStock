@@ -69,7 +69,7 @@ public class STORE_SHOW_DISTRIBUTOR_PRODUCTS extends AppCompatActivity implement
                             mAdapter.notifyDataSetChanged();
                             mProgressCircle.setVisibility(View.INVISIBLE);
                         } else {
-                            Toast.makeText(getApplicationContext(), "Distributor has no products yet", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Supplier has no products yet", Toast.LENGTH_LONG).show();
                             finish();
                         }
                     }

@@ -46,7 +46,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.OrderViewHol
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MM-dd-yyyy");
         holder.Date.setText("Date: " + simpleDateFormat.format(OrderCurrent.get_date()));
         holder.Quantity.setText("Quantity: " + String.valueOf(OrderCurrent.get_quantity()));
-        holder.Distributor.setText("Store: " + OrderCurrent.get_store_name());
+        holder.Distributor.setText("Retailer: " + OrderCurrent.get_store_name());
         holder.TotalCost.setText("Total Cost: " + String.format("%.2f", OrderCurrent.get_total_cost()) + "$");
 
         StorageReference storageReference = storage.getReferenceFromUrl(OrderCurrent.get_url());

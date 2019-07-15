@@ -97,7 +97,7 @@ public class ADMIN_ADD_PRODUCT extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                     if (task.isSuccessful()){
                                         if (task.getResult().size() > 0){
-                                            Toast.makeText(getApplicationContext(), "product already exists", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(getApplicationContext(), "product already exists", Toast.LENGTH_LONG).show();
                                         } else {
                                             chooseFile.setVisibility(View.INVISIBLE);
                                             circleImageView.setVisibility(View.INVISIBLE);
@@ -116,7 +116,11 @@ public class ADMIN_ADD_PRODUCT extends AppCompatActivity {
                 }
                 else
                 {
-                    Toast.makeText(getApplicationContext(), "did you enter everything?", Toast.LENGTH_SHORT).show();
+                    if (imageFlag) {
+                        Toast.makeText(getApplicationContext(), "one of the product properties wasn't entered", Toast.LENGTH_LONG).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "product image wasn't entered", Toast.LENGTH_LONG).show();
+                    }
                 }
             }
         });
@@ -193,7 +197,7 @@ public class ADMIN_ADD_PRODUCT extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 })
                 .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {

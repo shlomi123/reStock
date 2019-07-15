@@ -40,7 +40,7 @@
         android:layout_alignStart="@+id/textView_step_4"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:text="Once the qr code has been generated, it must be printed on the container's (or the product itself) of all your products. This feature allows for your client to find your products efficiently and quickly in the application."
+        android:text="Once the QR code has been generated, it must be printed on the cases of all your products. This feature allows for your client to find your products efficiently and quickly via the application."
         android:textColor="@android:color/background_dark"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"

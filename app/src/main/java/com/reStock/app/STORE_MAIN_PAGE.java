@@ -1,6 +1,8 @@
 package com.reStock.app;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -13,6 +15,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -56,7 +59,7 @@ public class STORE_MAIN_PAGE extends AppCompatActivity implements NavigationView
             getSupportFragmentManager().beginTransaction().replace(R.id.store_content_frame,
                     new DistributorFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_distributors);
-            getSupportActionBar().setTitle("Distributors");
+            getSupportActionBar().setTitle("Suppliers");
         }
 
         if(Build.VERSION.SDK_INT >=  Build.VERSION_CODES.M)
@@ -77,7 +80,7 @@ public class STORE_MAIN_PAGE extends AppCompatActivity implements NavigationView
                 getSupportFragmentManager().beginTransaction().replace(R.id.store_content_frame,
                         new DistributorFragment()).commit();
                 navigationView.setCheckedItem(R.id.nav_stores);
-                getSupportActionBar().setTitle("Distributors");
+                getSupportActionBar().setTitle("Suppliers");
                 break;
         }
     }
@@ -90,7 +93,7 @@ public class STORE_MAIN_PAGE extends AppCompatActivity implements NavigationView
                 fragment_num = 1;
                 getSupportFragmentManager().beginTransaction().replace(R.id.store_content_frame,
                         new DistributorFragment()).commit();
-                getSupportActionBar().setTitle("Distributors");
+                getSupportActionBar().setTitle("Suppliers");
                 break;
             case R.id.nav_scan:
                 startActivity(new Intent(STORE_MAIN_PAGE.this, STORE_QR_SCAN.class));
@@ -130,6 +133,40 @@ public class STORE_MAIN_PAGE extends AppCompatActivity implements NavigationView
 
     private void requestPermission()
     {
-        ActivityCompat.requestPermissions(this, new String[]{CAMERA}, 1);
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                Manifest.permission.CAMERA)) {
+
+            new AlertDialog.Builder(this)
+                    .setTitle("Permission needed")
+                    .setMessage("This permission is needed in order to use camera for scanning feature")
+                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ActivityCompat.requestPermissions(STORE_MAIN_PAGE.this,
+                                    new String[] {Manifest.permission.CAMERA}, 1);
+                        }
+                    })
+                    .create().show();
+
+        } else {
+            ActivityCompat.requestPermissions(this,
+                    new String[] {Manifest.permission.CAMERA}, 1);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case 1: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // permission was granted, yay! Do the
+                    // contacts-related task you need to do.
+                } else {
+                    requestPermission();
+                }
+            }
+        }
     }
 }

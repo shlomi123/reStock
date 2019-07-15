@@ -59,7 +59,7 @@ public class STORE_QR_SCAN extends AppCompatActivity implements ZXingScannerView
                                 finish();
                             }
                             else {
-                                Toast.makeText(getApplicationContext(), "invalid qr-code", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "invalid qr-code", Toast.LENGTH_LONG).show();
                                 finish();
                             }
                         }

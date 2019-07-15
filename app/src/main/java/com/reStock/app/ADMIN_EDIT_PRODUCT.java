@@ -166,7 +166,7 @@ public class ADMIN_EDIT_PRODUCT extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (edit_product_name.getText().toString().trim().equals("")) {
-                    Toast.makeText(getApplicationContext(), "please enter something", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "please enter something", Toast.LENGTH_LONG).show();
                 } else {
                     progress_name.setVisibility(View.VISIBLE);
                     check4.setVisibility(View.INVISIBLE);
@@ -175,7 +175,7 @@ public class ADMIN_EDIT_PRODUCT extends AppCompatActivity {
                         InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
                         imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
                     } catch (Exception e) {
-                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                     }
 
                     db.collection("Companies")
@@ -191,7 +191,7 @@ public class ADMIN_EDIT_PRODUCT extends AppCompatActivity {
                                     edit4.setVisibility(View.VISIBLE);
                                     progress_name.setVisibility(View.INVISIBLE);
                                     product_name.setText(edit_product_name.getText().toString());
-                                    Toast.makeText(getApplicationContext(), "succesfully upated", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "succesfully upated", Toast.LENGTH_LONG).show();
                                 }
                             });
                 }
@@ -214,7 +214,7 @@ public class ADMIN_EDIT_PRODUCT extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (edit_units_per_package.getText().toString().trim().equals("")) {
-                    Toast.makeText(getApplicationContext(), "please enter something", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "please enter something", Toast.LENGTH_LONG).show();
                 } else {
                     progress_units.setVisibility(View.VISIBLE);
                     check3.setVisibility(View.INVISIBLE);
@@ -223,7 +223,7 @@ public class ADMIN_EDIT_PRODUCT extends AppCompatActivity {
                         InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
                         imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
                     } catch (Exception e) {
-                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                     }
 
                     db.collection("Companies")
@@ -240,7 +240,7 @@ public class ADMIN_EDIT_PRODUCT extends AppCompatActivity {
                                     check3.setVisibility(View.INVISIBLE);
                                     units_per_package.setText(edit_units_per_package.getText().toString());
                                     progress_units.setVisibility(View.INVISIBLE);
-                                    Toast.makeText(getApplicationContext(), "succesfully upated", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "succesfully upated", Toast.LENGTH_LONG).show();
                                 }
                             });
                 }
@@ -263,7 +263,7 @@ public class ADMIN_EDIT_PRODUCT extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (edit_price_per_unit.getText().toString().trim().equals("")) {
-                    Toast.makeText(getApplicationContext(), "please enter something", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "please enter something", Toast.LENGTH_LONG).show();
                 } else {
                     progress_price.setVisibility(View.VISIBLE);
                     check2.setVisibility(View.INVISIBLE);
@@ -272,7 +272,7 @@ public class ADMIN_EDIT_PRODUCT extends AppCompatActivity {
                         InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
                         imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
                     } catch (Exception e) {
-                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                     }
 
                     db.collection("Companies")
@@ -289,7 +289,7 @@ public class ADMIN_EDIT_PRODUCT extends AppCompatActivity {
                                     check2.setVisibility(View.INVISIBLE);
                                     price_per_unit.setText(edit_price_per_unit.getText().toString());
                                     progress_price.setVisibility(View.INVISIBLE);
-                                    Toast.makeText(getApplicationContext(), "succesfully upated", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(getApplicationContext(), "succesfully upated", Toast.LENGTH_LONG).show();
                                 }
                             });
                 }
@@ -378,7 +378,7 @@ public class ADMIN_EDIT_PRODUCT extends AppCompatActivity {
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
-                                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                             }
                         }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
                             @Override
@@ -389,7 +389,7 @@ public class ADMIN_EDIT_PRODUCT extends AppCompatActivity {
                         });
 
                     } else {
-                        Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     }
                 }
             });

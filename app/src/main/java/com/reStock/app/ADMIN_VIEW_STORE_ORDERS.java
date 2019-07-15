@@ -63,7 +63,7 @@ public class ADMIN_VIEW_STORE_ORDERS extends AppCompatActivity implements OrderA
                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                         if (queryDocumentSnapshots.isEmpty())
                         {
-                            Toast.makeText(getApplicationContext(), "No Orders Were Made", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "No Orders Were Made", Toast.LENGTH_LONG).show();
                             finish();
                         }
                         for (DocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
@@ -79,7 +79,7 @@ public class ADMIN_VIEW_STORE_ORDERS extends AppCompatActivity implements OrderA
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -88,6 +88,6 @@ public class ADMIN_VIEW_STORE_ORDERS extends AppCompatActivity implements OrderA
     public void onItemClick(int position)
     {
         Order order = mOrders.get(position);
-        Toast.makeText(getApplicationContext(), order.get_product(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), order.get_product(), Toast.LENGTH_LONG).show();
     }
 }
